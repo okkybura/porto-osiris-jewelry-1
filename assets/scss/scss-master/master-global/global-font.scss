@@ -1,0 +1,115 @@
+
+
+// Utitlities
+
+@import "../../Scss-Utilities/Utilities.scss";
+
+// -------------------- Global - Font -------------------- //
+
+// Font - Primary
+
+@font-face {
+  font-family       : 'Tusker Grotesk';
+  font-style        : normal;
+  font-weight       : 700;
+  src               : url('/assets/fonts/Tusker-Grotesk/TuskerGrotesk-4700Bold.ttf');
+  font-display      : swap;
+}
+
+// Font - Secondary
+
+@font-face {
+  font-family       : 'Atyp Text';
+  font-style        : normal;
+  font-weight       : 300;
+  src               : url('/assets/fonts/Atyp/AtypText-Light.otf');
+  font-display      : swap;
+}
+
+@font-face {
+  font-family       : 'Atyp Text';
+  font-style        : normal;
+  font-weight       : 400;
+  src               : url('/assets/fonts/Atyp/AtypText-Regular.otf');
+  font-display      : swap;
+}
+
+@font-face {
+  font-family       : 'Atyp Text';
+  font-style        : normal;
+  font-weight       : 500;
+  src               : url('/assets/fonts/Atyp/AtypText-Medium.otf');
+  font-display      : swap;
+}
+
+@font-face {
+  font-family       : 'Atyp Text';
+  font-style        : normal;
+  font-weight       : 600;
+  src               : url('/assets/fonts/Atyp/AtypText-Semibold.otf');
+  font-display      : swap;
+}
+
+@font-face {
+  font-family       : 'Atyp Text';
+  font-style        : normal;
+  font-weight       : 700;
+  src               : url('/assets/fonts/Atyp/AtypText-Bold.otf');
+  font-display      : swap;
+}
+
+/*@font-face {
+  font-family       : 'Helonik';
+  font-style        : normal;
+  font-weight       : 300;
+  src               : url('/assets/fonts/Helonik/helonik-light.otf');
+  font-display      : swap;
+}
+
+@font-face {
+  font-family       : 'Helonik';
+  font-style        : normal;
+  font-weight       : 400;
+  src               : url('/assets/fonts/Helonik/helonik-regular.otf');
+  font-display      : swap;
+}
+
+@font-face {
+  font-family       : 'Helonik';
+  font-style        : normal;
+  font-weight       : 500;
+  src               : url('/assets/fonts/Helonik/helonik-medium.otf');
+  font-display      : swap;
+}
+
+@font-face {
+  font-family       : 'Helonik';
+  font-style        : normal;
+  font-weight       : 600;
+  src               : url('/assets/fonts/Helonik/helonik-demibold.otf');
+  font-display      : swap;
+}
+
+@font-face {
+  font-family       : 'Helonik';
+  font-style        : normal;
+  font-weight       : 700;
+  src               : url('/assets/fonts/Helonik/helonik-bold.otf');
+  font-display      : swap;
+}
+
+@font-face {
+  font-family       : 'Helonik';
+  font-style        : normal;
+  font-weight       : 800;
+  src               : url('/assets/fonts/Helonik/helonik-extrabold.otf');
+  font-display      : swap;
+}
+
+@font-face {
+  font-family       : 'Helonik';
+  font-style        : normal;
+  font-weight       : 900;
+  src               : url('/assets/fonts/Helonik/helonik-black.otf');
+  font-display      : swap;
+}*/
