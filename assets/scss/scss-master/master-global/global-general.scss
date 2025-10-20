@@ -57,13 +57,13 @@
     // Font - Weight
 
     --font-weight-title                                         : 900;
-    --font-weight-subtitle                                      : 900;
+    --font-weight-subtitle                                      : 700;
     --font-weight-description                                   : 400;
     --font-weight-date                                          : 400;
     --font-weight-caption                                       : 900;
     --font-weight-number                                        : 900;
     --font-weight-tag                                           : 900;
-    --font-weight-link                                          : 500;
+    --font-weight-link                                          : 400;
     --font-weight-button                                        : 900;
     --font-weight-textprice                                     : 900;
     --font-weight-sellprice                                     : 900;
@@ -205,6 +205,10 @@ img {
 
 img::selection {
     background                  : transparent;
+}
+
+img[data-speed] {
+    transition                  : unset !important;
 }
 
 a, button {
@@ -514,7 +518,7 @@ a, button {
         font-weight             : var(--font-weight-title);                  
         font-size               : calc(var(--font-size-title) / var(--vw) * var(--multiplier));
 
-        line-height             : 1;
+        line-height             : 1.05;
 
         letter-spacing          : calc(var(--letter-spacing-title) / var(--vw) * var(--multiplier));
 

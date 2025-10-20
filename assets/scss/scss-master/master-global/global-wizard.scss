@@ -367,7 +367,7 @@
                     font-weight         : var(--font-weight-medium);
                     font-size           : calc(177.5 / var(--vw) * var(--multiplier));
 
-                    line-height         : 1;
+                    line-height         : 0.85;
                     letter-spacing      : calc(-5 / var(--vw) * var(--multiplier));
 
                     color               : var(--color-black);
@@ -409,7 +409,7 @@
             @include pl-1;
 
             .title {
-                @include mb-2;
+                @include mb-3;
 
                 .text-title {
                     font-family         : var(--font-family-general);
@@ -438,9 +438,9 @@
 
     .theme {
 
-        // Hero
+        // Podcast Highlight
 
-        &.hero {
+        &.podcast-highlight {
 
             // Primary
 
@@ -448,27 +448,55 @@
 
                 .container {
                     @include max-width-100;
-
-                    @include px-4;
                 }
 
-                // Header
+                // Content
 
-                .hero-header {
-                    .col-header-outer {
-                        @include col-12;
+                .podcast-highlight-content {
+                    .content-wrapper {
 
-                        .col-header-inner {
-                            @include col-6;
-                        }
-                    }
-                    
-                    .header-text {
-                        .title {
-                            .text-title {
-                                font-size               : calc(160 / var(--vw) * var(--multiplier));;
+                         // Primary
+
+                         &.primary {
+                            .col-wrapper-outer {
+                                @include col-12;
+
+                                .col-wrapper-inner {
+                                    @include col-6;
+                                }
                             }
-                        }
+                            
+                            .content-image {
+                                .image {
+                                    @include overflow-hidden;
+                                }
+                            }
+
+                            .content-text {
+                                .col-text-outer {
+                                    @include col-12;
+
+                                    .col-text-inner {
+                                        &:nth-child(1) {
+                                            @include col-3;
+                                        }
+
+                                        &:nth-child(2) {
+                                            @include col-8;
+
+                                            @include pl-5;
+                                            @include ml-auto;
+                                        }
+                                    }
+                                }
+
+                                .title {
+                                    .text-title {
+                                        font-size           : calc(150 / var(--vw) * var(--multiplier));;
+                                    }
+                                }
+                            }
+                         }
                     }
                 }
             }
