@@ -11596,6 +11596,7 @@ a ::before, a ::after, button ::before, button ::after {
 }
 .wizard .theme.podcast-highlight.primary .container {
   max-width: 100% !important;
+  padding-bottom: 0 !important;
 }
 .wizard .theme.podcast-highlight.primary .podcast-highlight-content .content-wrapper.primary .col-wrapper-outer {
   position: relative;
@@ -11654,6 +11655,116 @@ a ::before, a ::after, button ::before, button ::after {
 }
 .wizard .theme.podcast-highlight.primary .podcast-highlight-content .content-wrapper.primary .content-text .title .text-title {
   font-size: calc(150 / var(--vw) * var(--multiplier));
+}
+.wizard .theme.podcast-list.primary .container {
+  max-width: 100% !important;
+  padding-top: calc(20 / var(--vw) * var(--multiplier)) !important;
+}
+.wizard .theme.podcast-list.primary .podcast-list-content .col-content-outer {
+  position: relative;
+  width: 100%;
+  min-height: 1%;
+  padding: 0 calc(15 / var(--vw) * var(--multiplier));
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding-left: calc(10 / var(--vw) * var(--multiplier)) !important;
+  padding-right: calc(10 / var(--vw) * var(--multiplier)) !important;
+}
+.wizard .theme.podcast-list.primary .podcast-list-content .col-content-outer .col-content-inner {
+  position: relative;
+  width: 100%;
+  min-height: 1%;
+  padding: 0 calc(15 / var(--vw) * var(--multiplier));
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding-left: calc(10 / var(--vw) * var(--multiplier)) !important;
+  padding-right: calc(10 / var(--vw) * var(--multiplier)) !important;
+}
+.wizard .theme.podcast-list.primary .podcast-list-content .content-wrapper.primary .col-wrapper-outer {
+  position: relative;
+  width: 100%;
+  min-height: 1%;
+  padding: 0 calc(15 / var(--vw) * var(--multiplier));
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding-left: calc(5 / var(--vw) * var(--multiplier)) !important;
+  padding-right: calc(5 / var(--vw) * var(--multiplier)) !important;
+}
+.wizard .theme.podcast-list.primary .podcast-list-content .content-wrapper.primary .col-wrapper-outer .col-wrapper-inner:nth-child(1) {
+  position: relative;
+  width: 100%;
+  min-height: 1%;
+  padding: 0 calc(15 / var(--vw) * var(--multiplier));
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 75%;
+  flex: 0 0 75%;
+  max-width: 75%;
+}
+.wizard .theme.podcast-list.primary .podcast-list-content .content-wrapper.primary .col-wrapper-outer .col-wrapper-inner:nth-child(2) {
+  position: relative;
+  width: 100%;
+  min-height: 1%;
+  padding: 0 calc(15 / var(--vw) * var(--multiplier));
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 16.66667%;
+  flex: 0 0 16.66667%;
+  max-width: 16.66667%;
+  margin-left: auto !important;
+}
+.wizard .theme.podcast-list.primary .podcast-list-content .content-wrapper.primary .content-image {
+  margin-bottom: calc(20 / var(--vw) * var(--multiplier)) !important;
+}
+.wizard .theme.podcast-list.primary .podcast-list-content .content-wrapper.primary .content-image .image {
+  overflow: hidden;
+  height: calc(250 / var(--vw) * var(--multiplier));
+}
+.wizard .theme.podcast-list.primary .podcast-list-content .content-wrapper.primary .content-text .col-text-outer {
+  position: relative;
+  width: 100%;
+  min-height: 1%;
+  padding: 0 calc(15 / var(--vw) * var(--multiplier));
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding-left: calc(5 / var(--vw) * var(--multiplier)) !important;
+  padding-right: calc(5 / var(--vw) * var(--multiplier)) !important;
+}
+.wizard .theme.podcast-list.primary .podcast-list-content .content-wrapper.primary .content-text .col-text-outer .col-text-inner:nth-child(1) {
+  position: relative;
+  width: 100%;
+  min-height: 1%;
+  padding: 0 calc(15 / var(--vw) * var(--multiplier));
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+.wizard .theme.podcast-list.primary .podcast-list-content .content-wrapper.primary .content-text .col-text-outer .col-text-inner:nth-child(2) {
+  position: relative;
+  width: 100%;
+  min-height: 1%;
+  padding: 0 calc(15 / var(--vw) * var(--multiplier));
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 66.66667%;
+  flex: 0 0 66.66667%;
+  max-width: 66.66667%;
+  margin-left: auto !important;
+}
+.wizard .theme.podcast-list.primary .podcast-list-content .content-wrapper.primary .content-text .title .text-title {
+  text-transform: none;
+  font-family: var(--font-family-general);
+  font-size: calc(65 / var(--vw) * var(--multiplier));
+  font-weight: var(--font-weight-medium);
+}
+.wizard .theme.podcast-list.primary .podcast-list-content .content-wrapper.primary .content-text .desc .text-description {
+  font-size: calc(16 / var(--vw) * var(--multiplier));
 }
 
 /*# sourceMappingURL=css-master.css.map */
