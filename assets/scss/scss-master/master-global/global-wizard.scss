@@ -340,6 +340,20 @@
                     .wrapper-inner {
                         float                       : inline-end;
                     }
+
+                    .col-outer {
+                        .col-inner {
+                            &:nth-child(odd) {
+                                @include col-4;
+
+                                @include mx-auto;
+
+                                .wrapper-inner {
+                                    float           : unset;
+                                }
+                            }
+                        }
+                    }
                 }
 
                 .col-outer {
@@ -520,10 +534,15 @@
                 // Content
 
                 .podcast-list-content {
+                    @include overflow-hidden;
+
+                    @include pb-5;
+                    @include mb-5;
+
+                    border-bottom               : calc(1 / var(--vw) * var(--multiplier)) solid darken($color-grey-super-light, 10%);
+
                     .col-content-outer {
                         @include col-12;
-                        
-                        @include px-2;
 
                         .col-content-inner {
                             @include col-6;
@@ -540,7 +559,7 @@
                             .col-wrapper-outer {
                                 @include col-12;
 
-                                @include px-1;
+                                @include px-4;
 
                                 .col-wrapper-inner {
                                     &:nth-child(1) {
@@ -596,6 +615,100 @@
                                 .desc {
                                     .text-description {
                                         font-size               : calc(16 / var(--vw) * var(--multiplier));
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Footer
+
+                .podcast-list-footer {
+                    @include overflow-hidden;
+
+                    .footer-list {
+                        > ul {
+                            @include pl-0;
+
+                            list-style          : none;
+
+                            > li {
+                                @include pb-5;
+                                @include mb-5;
+
+                                border-bottom               : calc(1 / var(--vw) * var(--multiplier)) solid darken($color-grey-super-light, 10%);
+
+                                &:last-child {
+                                    @include pb-0;
+
+                                    border-bottom           : none;
+                                }
+
+                                .list-wrapper {
+
+                                    // Primary
+
+                                    &.primary {
+                                        .col-wrapper-outer {
+                                            @include col-12;
+
+                                            @include px-4;
+
+                                            .col-wrapper-inner {
+                                                &:nth-child(1) {
+                                                    @include col-11;
+                                                }
+
+                                                &:nth-child(2) {
+                                                    @include col-1;
+                                                }
+                                            }
+                                        }
+
+                                        .list-text {
+                                            .col-text-outer {
+                                                @include col-12;
+
+                                                @include px-1;
+
+                                                .col-text-inner {
+                                                    &:nth-child(1) {
+                                                        @include col-1;
+
+                                                        @include mr-auto;
+                                                    }
+
+                                                    &:nth-child(2) {
+                                                        @include col-6;
+                                                    }
+
+                                                    &:nth-child(3) {
+                                                        @include col-12;
+
+                                                        @include mx-auto;
+
+                                                        max-width           : 27.5%;
+                                                    }
+                                                }
+                                            }
+
+                                            .title {
+                                                .text-title {
+                                                    @include text-transform-none;
+
+                                                    font-family             : var(--font-family-general);
+                                                    font-size               : calc(40 / var(--vw) * var(--multiplier));
+                                                    font-weight             : var(--font-weight-medium);
+                                                }
+                                            }
+
+                                            .desc {
+                                                .text-description {
+                                                    font-size               : calc(16 / var(--vw) * var(--multiplier));
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
