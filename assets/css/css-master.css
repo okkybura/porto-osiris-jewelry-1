@@ -10126,6 +10126,10 @@ a ::before, a ::after, button ::before, button ::after {
   transition: transform 0.25s ease-in-out, opacity 0.1s;
 }
 
+.mf-cursor-text {
+  transition: opacity 0.3s !important;
+}
+
 .mf-cursor.-text:before {
   width: calc(45 / var(--vw) * var(--multiplier));
   height: calc(45 / var(--vw) * var(--multiplier));
@@ -10150,6 +10154,11 @@ a ::before, a ::after, button ::before, button ::after {
 .container {
   max-width: 82.5%;
   padding: calc(125 / var(--vw) * var(--multiplier)) calc(15 / var(--vw) * var(--multiplier));
+}
+
+.row {
+  margin-left: calc(-15 / var(--vw) * var(--multiplier)) !important;
+  margin-right: calc(-15 / var(--vw) * var(--multiplier)) !important;
 }
 
 .form-group label {
@@ -10599,6 +10608,26 @@ a ::before, a ::after, button ::before, button ::after {
   line-height: 1.35;
   color: var(--color-black);
 }
+.subtitle .text-subtitle.primary {
+  position: relative;
+  margin-bottom: 0 !important;
+}
+.subtitle .text-subtitle.primary:before {
+  position: absolute;
+  width: 100% !important;
+  content: "";
+  height: calc(1.5 / var(--vw) * var(--multiplier));
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background: var(--color-black);
+}
+.subtitle .text-subtitle.primary .line-mask {
+  padding-right: calc(15 / var(--vw) * var(--multiplier)) !important;
+  display: inline-block !important;
+  z-index: 10;
+  background: var(--color-white);
+}
 
 .desc .text-description {
   font-family: var(--font-family-description);
@@ -10975,7 +11004,6 @@ a ::before, a ::after, button ::before, button ::after {
   background: var(--color-white);
   box-shadow: 0 0 0 calc(2 / var(--vw) * var(--multiplier)) var(--color-black) inset;
 }
-
 .link-default {
   position: relative;
   display: inline-block;
@@ -11520,20 +11548,8 @@ a ::before, a ::after, button ::before, button ::after {
 .footbar.primary .col-footbar-outer .col-footbar-inner:last-child .wrapper-inner {
   float: inline-end;
 }
-.footbar.primary .col-footbar-outer .col-footbar-inner:last-child .col-outer .col-inner:nth-child(odd) {
-  position: relative;
-  width: 100%;
-  min-height: 1%;
-  padding: 0 calc(15 / var(--vw) * var(--multiplier));
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 33.33333%;
-  flex: 0 0 33.33333%;
-  max-width: 33.33333%;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
 .footbar.primary .col-footbar-outer .col-footbar-inner:last-child .col-outer .col-inner:nth-child(odd) .wrapper-inner {
-  float: unset;
+  transform: translateX(calc(-12.5 / var(--vw) * var(--multiplier)));
 }
 .footbar.primary .col-footbar-outer .col-footbar-inner .col-outer {
   position: relative;
@@ -11652,9 +11668,10 @@ a ::before, a ::after, button ::before, button ::after {
   min-height: 1%;
   padding: 0 calc(15 / var(--vw) * var(--multiplier));
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 25%;
-  flex: 0 0 25%;
-  max-width: 25%;
+  -ms-flex: 0 0 33.33333%;
+  flex: 0 0 33.33333%;
+  max-width: 33.33333%;
+  padding-right: 0 !important;
 }
 .wizard .theme.podcast-highlight.primary .podcast-highlight-content .content-wrapper.primary .content-text .col-text-outer .col-text-inner:nth-child(2) {
   position: relative;
@@ -11665,8 +11682,7 @@ a ::before, a ::after, button ::before, button ::after {
   -ms-flex: 0 0 66.66667%;
   flex: 0 0 66.66667%;
   max-width: 66.66667%;
-  padding-left: calc(35 / var(--vw) * var(--multiplier)) !important;
-  margin-left: auto !important;
+  padding-left: calc(20 / var(--vw) * var(--multiplier)) !important;
 }
 .wizard .theme.podcast-highlight.primary .podcast-highlight-content .content-wrapper.primary .content-text .title .text-title {
   font-size: calc(150 / var(--vw) * var(--multiplier));
@@ -11674,9 +11690,9 @@ a ::before, a ::after, button ::before, button ::after {
 .wizard .theme.podcast-list.primary .container {
   max-width: 100% !important;
   padding-top: calc(20 / var(--vw) * var(--multiplier)) !important;
+  padding-bottom: calc(35 / var(--vw) * var(--multiplier)) !important;
 }
 .wizard .theme.podcast-list.primary .podcast-list-content {
-  overflow: hidden;
   padding-bottom: calc(35 / var(--vw) * var(--multiplier)) !important;
   margin-bottom: calc(35 / var(--vw) * var(--multiplier)) !important;
   border-bottom: calc(1 / var(--vw) * var(--multiplier)) solid rgb(215.5, 215.5, 215.5);
@@ -11700,8 +11716,12 @@ a ::before, a ::after, button ::before, button ::after {
   -ms-flex: 0 0 50%;
   flex: 0 0 50%;
   max-width: 50%;
-  padding-left: calc(10 / var(--vw) * var(--multiplier)) !important;
+}
+.wizard .theme.podcast-list.primary .podcast-list-content .col-content-outer .col-content-inner:nth-child(odd) {
   padding-right: calc(10 / var(--vw) * var(--multiplier)) !important;
+}
+.wizard .theme.podcast-list.primary .podcast-list-content .col-content-outer .col-content-inner:nth-child(even) {
+  padding-left: calc(10 / var(--vw) * var(--multiplier)) !important;
 }
 .wizard .theme.podcast-list.primary .podcast-list-content .content-wrapper.primary .col-wrapper-outer {
   position: relative;
@@ -11721,9 +11741,9 @@ a ::before, a ::after, button ::before, button ::after {
   min-height: 1%;
   padding: 0 calc(15 / var(--vw) * var(--multiplier));
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 75%;
-  flex: 0 0 75%;
-  max-width: 75%;
+  -ms-flex: 0 0 83.33333%;
+  flex: 0 0 83.33333%;
+  max-width: 83.33333%;
 }
 .wizard .theme.podcast-list.primary .podcast-list-content .content-wrapper.primary .col-wrapper-outer .col-wrapper-inner:nth-child(2) {
   position: relative;
@@ -11731,17 +11751,28 @@ a ::before, a ::after, button ::before, button ::after {
   min-height: 1%;
   padding: 0 calc(15 / var(--vw) * var(--multiplier));
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 16.66667%;
-  flex: 0 0 16.66667%;
-  max-width: 16.66667%;
-  margin-left: auto !important;
+  -ms-flex: 0 0 8.33333%;
+  flex: 0 0 8.33333%;
+  max-width: 8.33333%;
 }
 .wizard .theme.podcast-list.primary .podcast-list-content .content-wrapper.primary .content-image {
+  overflow: hidden;
   margin-bottom: calc(20 / var(--vw) * var(--multiplier)) !important;
 }
 .wizard .theme.podcast-list.primary .podcast-list-content .content-wrapper.primary .content-image .image {
-  overflow: hidden;
   height: calc(250 / var(--vw) * var(--multiplier));
+}
+.wizard .theme.podcast-list.primary .podcast-list-content .content-wrapper.primary .content-image .image > a {
+  position: relative;
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+.wizard .theme.podcast-list.primary .podcast-list-content .content-wrapper.primary .content-image .image > a img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  filter: saturate(0);
 }
 .wizard .theme.podcast-list.primary .podcast-list-content .content-wrapper.primary .content-text .col-text-outer {
   position: relative;
@@ -11752,8 +11783,6 @@ a ::before, a ::after, button ::before, button ::after {
   -ms-flex: 0 0 100%;
   flex: 0 0 100%;
   max-width: 100%;
-  padding-left: calc(5 / var(--vw) * var(--multiplier)) !important;
-  padding-right: calc(5 / var(--vw) * var(--multiplier)) !important;
 }
 .wizard .theme.podcast-list.primary .podcast-list-content .content-wrapper.primary .content-text .col-text-outer .col-text-inner:nth-child(1) {
   position: relative;
@@ -11761,9 +11790,10 @@ a ::before, a ::after, button ::before, button ::after {
   min-height: 1%;
   padding: 0 calc(15 / var(--vw) * var(--multiplier));
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 25%;
-  flex: 0 0 25%;
-  max-width: 25%;
+  -ms-flex: 0 0 41.66667%;
+  flex: 0 0 41.66667%;
+  max-width: 41.66667%;
+  padding-right: calc(10 / var(--vw) * var(--multiplier)) !important;
 }
 .wizard .theme.podcast-list.primary .podcast-list-content .content-wrapper.primary .content-text .col-text-outer .col-text-inner:nth-child(2) {
   position: relative;
@@ -11771,10 +11801,9 @@ a ::before, a ::after, button ::before, button ::after {
   min-height: 1%;
   padding: 0 calc(15 / var(--vw) * var(--multiplier));
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 66.66667%;
-  flex: 0 0 66.66667%;
-  max-width: 66.66667%;
-  margin-left: auto !important;
+  -ms-flex: 0 0 58.33333%;
+  flex: 0 0 58.33333%;
+  max-width: 58.33333%;
 }
 .wizard .theme.podcast-list.primary .podcast-list-content .content-wrapper.primary .content-text .title .text-title {
   text-transform: none;
@@ -11782,11 +11811,15 @@ a ::before, a ::after, button ::before, button ::after {
   font-size: calc(65 / var(--vw) * var(--multiplier));
   font-weight: var(--font-weight-medium);
 }
+.wizard .theme.podcast-list.primary .podcast-list-content .content-wrapper.primary .content-text .subtitle {
+  padding-top: calc(15 / var(--vw) * var(--multiplier)) !important;
+}
 .wizard .theme.podcast-list.primary .podcast-list-content .content-wrapper.primary .content-text .desc .text-description {
   font-size: calc(16 / var(--vw) * var(--multiplier));
 }
-.wizard .theme.podcast-list.primary .podcast-list-footer {
-  overflow: hidden;
+.wizard .theme.podcast-list.primary .podcast-list-content .content-wrapper.primary:hover .content-image .image > a img {
+  filter: saturate(1);
+  transform: translateY(-50%) scale(1.025);
 }
 .wizard .theme.podcast-list.primary .podcast-list-footer .footer-list > ul {
   padding-left: 0 !important;
@@ -11842,8 +11875,6 @@ a ::before, a ::after, button ::before, button ::after {
   -ms-flex: 0 0 100%;
   flex: 0 0 100%;
   max-width: 100%;
-  padding-left: calc(5 / var(--vw) * var(--multiplier)) !important;
-  padding-right: calc(5 / var(--vw) * var(--multiplier)) !important;
 }
 .wizard .theme.podcast-list.primary .podcast-list-footer .footer-list > ul > li .list-wrapper.primary .list-text .col-text-outer .col-text-inner:nth-child(1) {
   position: relative;
@@ -11851,10 +11882,9 @@ a ::before, a ::after, button ::before, button ::after {
   min-height: 1%;
   padding: 0 calc(15 / var(--vw) * var(--multiplier));
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 8.33333%;
-  flex: 0 0 8.33333%;
-  max-width: 8.33333%;
-  margin-right: auto !important;
+  -ms-flex: 0 0 16.66667%;
+  flex: 0 0 16.66667%;
+  max-width: 16.66667%;
 }
 .wizard .theme.podcast-list.primary .podcast-list-footer .footer-list > ul > li .list-wrapper.primary .list-text .col-text-outer .col-text-inner:nth-child(2) {
   position: relative;
@@ -11862,9 +11892,11 @@ a ::before, a ::after, button ::before, button ::after {
   min-height: 1%;
   padding: 0 calc(15 / var(--vw) * var(--multiplier));
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
-  max-width: 50%;
+  -ms-flex: 0 0 41.66667%;
+  flex: 0 0 41.66667%;
+  max-width: 41.66667%;
+  padding-left: calc(35 / var(--vw) * var(--multiplier)) !important;
+  margin-left: calc(10 / var(--vw) * var(--multiplier)) !important;
 }
 .wizard .theme.podcast-list.primary .podcast-list-footer .footer-list > ul > li .list-wrapper.primary .list-text .col-text-outer .col-text-inner:nth-child(3) {
   position: relative;
@@ -11872,12 +11904,12 @@ a ::before, a ::after, button ::before, button ::after {
   min-height: 1%;
   padding: 0 calc(15 / var(--vw) * var(--multiplier));
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 100%;
-  flex: 0 0 100%;
-  max-width: 100%;
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  max-width: 25%;
+  padding-left: 0 !important;
   margin-left: auto !important;
-  margin-right: auto !important;
-  max-width: 27.5%;
+  transform: translateX(calc(-5 / var(--vw) * var(--multiplier)));
 }
 .wizard .theme.podcast-list.primary .podcast-list-footer .footer-list > ul > li .list-wrapper.primary .list-text .title .text-title {
   text-transform: none;

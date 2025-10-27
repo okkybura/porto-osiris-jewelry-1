@@ -344,12 +344,8 @@
                     .col-outer {
                         .col-inner {
                             &:nth-child(odd) {
-                                @include col-4;
-
-                                @include mx-auto;
-
                                 .wrapper-inner {
-                                    float           : unset;
+                                    transform       : translateX(calc(-12.5 / var(--vw) * var(--multiplier)));
                                 }
                             }
                         }
@@ -494,14 +490,15 @@
 
                                     .col-text-inner {
                                         &:nth-child(1) {
-                                            @include col-3;
+                                            @include col-4;
+
+                                            @include pr-0;
                                         }
 
                                         &:nth-child(2) {
                                             @include col-8;
 
-                                            @include pl-5;
-                                            @include ml-auto;
+                                            @include pl-4;
                                         }
                                     }
                                 }
@@ -529,13 +526,12 @@
                     @include max-width-100;
 
                     @include pt-4;
+                    @include pb-5;
                 }
 
                 // Content
 
                 .podcast-list-content {
-                    @include overflow-hidden;
-
                     @include pb-5;
                     @include mb-5;
 
@@ -547,7 +543,13 @@
                         .col-content-inner {
                             @include col-6;
 
-                            @include px-2;
+                            &:nth-child(odd) {
+                                @include pr-2;
+                            }
+
+                            &:nth-child(even) {
+                                @include pl-2;
+                            }
                         }
                     }
 
@@ -563,23 +565,41 @@
 
                                 .col-wrapper-inner {
                                     &:nth-child(1) {
-                                        @include col-9;
+                                        @include col-10;
                                     }
 
                                     &:nth-child(2) {
-                                        @include col-2;
-
-                                        @include ml-auto;
+                                        @include col-1;
                                     }
                                 }
                             }
+
                             .content-image {
+                                @include overflow-hidden;
+
                                 @include mb-4;
 
                                 .image {
-                                    @include overflow-hidden;
-
                                     height          : calc(250 / var(--vw) * var(--multiplier));
+
+                                    > a {
+                                        @include position-relative;
+
+                                        @include display-block;
+
+                                        @include width-100;
+                                        @include height-100;
+
+                                        img {
+                                            @include position-absolute;
+
+                                            top             : 50%;
+                                            
+                                            transform       : translateY(-50%);
+
+                                            filter          : saturate(0);
+                                        }
+                                    }
                                 }
                             }
 
@@ -587,17 +607,15 @@
                                 .col-text-outer {
                                     @include col-12;
 
-                                    @include px-1;
-
                                     .col-text-inner {
                                         &:nth-child(1) {
-                                            @include col-3;
+                                            @include col-5;
+
+                                            @include pr-2;
                                         }
 
                                         &:nth-child(2) {
-                                            @include col-8;
-
-                                            @include ml-auto;
+                                            @include col-7;
                                         }
                                     }
                                 }
@@ -612,9 +630,27 @@
                                     }
                                 }
 
+                                .subtitle {
+                                    @include pt-3;
+                                }
+
                                 .desc {
                                     .text-description {
                                         font-size               : calc(16 / var(--vw) * var(--multiplier));
+                                    }
+                                }
+                            }
+
+                            &:hover {
+                                .content-image {
+                                    .image {
+                                        > a {
+                                            img {
+                                                filter          : saturate(1);
+
+                                                transform       : translateY(-50%) scale(1.025); 
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -625,8 +661,6 @@
                 // Footer
 
                 .podcast-list-footer {
-                    @include overflow-hidden;
-
                     .footer-list {
                         > ul {
                             @include pl-0;
@@ -670,25 +704,25 @@
                                             .col-text-outer {
                                                 @include col-12;
 
-                                                @include px-1;
-
                                                 .col-text-inner {
                                                     &:nth-child(1) {
-                                                        @include col-1;
-
-                                                        @include mr-auto;
+                                                        @include col-2;
                                                     }
 
                                                     &:nth-child(2) {
-                                                        @include col-6;
+                                                        @include col-5;
+                                                        
+                                                        @include pl-5;
+                                                        @include ml-2;
                                                     }
 
                                                     &:nth-child(3) {
-                                                        @include col-12;
+                                                        @include col-3;
 
-                                                        @include mx-auto;
+                                                        @include pl-0;
+                                                        @include ml-auto;
 
-                                                        max-width           : 27.5%;
+                                                        transform           : translateX(calc(-5 / var(--vw) * var(--multiplier)))
                                                     }
                                                 }
                                             }

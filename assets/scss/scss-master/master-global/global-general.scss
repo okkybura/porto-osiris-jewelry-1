@@ -252,6 +252,10 @@ a, button {
     }
 }
 
+.mf-cursor-text {
+    transition                  : opacity 0.3s !important;
+}
+
 .mf-cursor.-text {
     &:before {
         width                   : calc(45 / var(--vw) * var(--multiplier));
@@ -294,6 +298,10 @@ a, button {
     max-width                   : 82.5%;
 
     padding                     : calc(125 / var(--vw) * var(--multiplier)) calc(15 / var(--vw) * var(--multiplier));
+}
+
+.row {
+    @include mx-minus-3;
 }
 
 // Form
@@ -671,6 +679,39 @@ a, button {
         line-height             : 1.35;
 
         color                   : var(--color-black);
+
+        &.primary {
+            @include position-relative;
+
+            @include mb-0;
+
+            &:before {
+                @include position-absolute;
+
+                @include width-100;
+
+                content          : '';
+
+                height          : calc(1.5 / var(--vw) * var(--multiplier));
+
+                top             : 50%;
+                right           : 0;
+
+                transform       : translateY(-50%);
+
+                background      : var(--color-black);
+            }
+
+            .line-mask {
+                @include pr-3;
+
+                display         : inline-block !important;
+
+                z-index         : 10;
+
+                background      : var(--color-white);
+            }
+        }
     }
 }
 
@@ -1076,6 +1117,14 @@ a, button {
                     box-shadow          : 0 0 0 calc(2 / var(--vw) * var(--multiplier)) var(--color-black) inset;
                 }
             }
+        }
+    }
+
+    // Icon
+
+    &.btn-icon {
+        > span {
+
         }
     }
 }

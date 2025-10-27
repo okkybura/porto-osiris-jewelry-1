@@ -24,7 +24,6 @@ window.addEventListener('wheel', function (e) {
 const cursorDefault = new MouseFollower({
     skewing: 1,
     speed: 0.5,
-    visible: false,
 });
 
 const targets = document.querySelectorAll('[data-cursor]');
@@ -220,50 +219,50 @@ $('.carousel-triple').flickity({
 
 /* -------------------- File Uploader Setting -------------------- */
 
-document.addEventListener("DOMContentLoaded", function () {
-    if (window.File && window.FileList && window.FileReader) {
-        const fileInput = document.getElementById("files");
+// document.addEventListener("DOMContentLoaded", function () {
+//     if (window.File && window.FileList && window.FileReader) {
+//         const fileInput = document.getElementById("files");
 
-        fileInput.addEventListener("change", function (e) {
-            const files = e.target.files;
+//         fileInput.addEventListener("change", function (e) {
+//             const files = e.target.files;
 
-            for (let i = 0; i < files.length; i++) {
-                const f = files[i];
-                const reader = new FileReader();
+//             for (let i = 0; i < files.length; i++) {
+//                 const f = files[i];
+//                 const reader = new FileReader();
 
-                reader.onload = function (e) {
-                    const span = document.createElement("span");
-                    span.className = "preview";
+//                 reader.onload = function (e) {
+//                     const span = document.createElement("span");
+//                     span.className = "preview";
 
-                    const img = document.createElement("img");
-                    img.className = "imageThumb";
-                    img.src = e.target.result;
-                    img.title = f.name;
+//                     const img = document.createElement("img");
+//                     img.className = "imageThumb";
+//                     img.src = e.target.result;
+//                     img.title = f.name;
 
-                    const btn = document.createElement("span");
-                    btn.className = "remove";
-                    btn.textContent = "Remove image";
+//                     const btn = document.createElement("span");
+//                     btn.className = "remove";
+//                     btn.textContent = "Remove image";
 
-                    btn.addEventListener("click", function () {
-                        span.remove();
-                        if (document.querySelectorAll(".box-preview .preview").length === 0) {
-                            document.querySelector(".box-placeholder").classList.remove("hidden");
-                        }
-                    });
+//                     btn.addEventListener("click", function () {
+//                         span.remove();
+//                         if (document.querySelectorAll(".box-preview .preview").length === 0) {
+//                             document.querySelector(".box-placeholder").classList.remove("hidden");
+//                         }
+//                     });
 
-                    span.appendChild(img);
-                    span.appendChild(btn);
+//                     span.appendChild(img);
+//                     span.appendChild(btn);
 
-                    document.querySelector(".box-preview").appendChild(span);
-                    document.querySelector(".box-placeholder").classList.add("hidden");
-                };
+//                     document.querySelector(".box-preview").appendChild(span);
+//                     document.querySelector(".box-placeholder").classList.add("hidden");
+//                 };
 
-                reader.readAsDataURL(f);
-            }
-            fileInput.value = "";
-        });
-    }
-    else {
-        alert("Your browser doesn't support the File API");
-    }
-});
+//                 reader.readAsDataURL(f);
+//             }
+//             fileInput.value = "";
+//         });
+//     }
+//     else {
+//         alert("Your browser doesn't support the File API");
+//     }
+// });
