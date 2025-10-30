@@ -147,9 +147,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Splitting Text - Button
 
-    document.querySelectorAll('.btn').forEach(btn => {
+    document.querySelectorAll('.btn-default').forEach(btn => {
 
         const textSpan = btn.querySelector('.text');
+
+        if (textSpan) {
+            const text = textSpan.textContent.trim();
+            let charSpans = '';
+
+            text.split('').forEach(char => {
+                charSpans += `<span>${char}</span>`;
+            });
+
+            textSpan.innerHTML = `
+                        <span>${charSpans}</span>
+                        <span>${charSpans}</span>
+                    `;
+        }
+    });
+
+    document.querySelectorAll('.btn-default').forEach(btn => {
+
+        const textSpan = btn.querySelector('.time');
 
         if (textSpan) {
             const text = textSpan.textContent.trim();

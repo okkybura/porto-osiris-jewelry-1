@@ -266,6 +266,70 @@ $grid-breakpoints: ( xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px ) !defau
     @return $result;
 }
 
+// -------------------- Font Family -------------------- //
+
+@mixin font-primary() {
+    font-family         : var(--font-family-primary);
+}
+
+@mixin font-secondary() {
+    font-family         : var(--font-family-secondary);
+}
+
+// -------------------- Font Size -------------------- //
+
+@mixin d1() {
+    font-size           : calc(var(--font-size-display1) / var(--vw) * var(--multiplier));
+}
+
+@mixin d2() {
+    font-size           : calc(var(--font-size-display2) / var(--vw) * var(--multiplier));
+}
+
+@mixin d3() {
+    font-size           : calc(var(--font-size-display3) / var(--vw) * var(--multiplier));
+}
+
+@mixin d4() {
+    font-size           : calc(var(--font-size-display4) / var(--vw) * var(--multiplier));
+}
+
+@mixin h1() {
+    font-size           : calc(var(--font-size-h1) / var(--vw) * var(--multiplier));
+}
+
+@mixin h2() {
+    font-size           : calc(var(--font-size-h2) / var(--vw) * var(--multiplier));
+}
+
+@mixin h3() {
+    font-size           : calc(var(--font-size-h3) / var(--vw) * var(--multiplier));
+}
+
+@mixin h4() {
+    font-size           : calc(var(--font-size-h4) / var(--vw) * var(--multiplier));
+}
+
+@mixin h5() {
+    font-size           : calc(var(--font-size-h5) / var(--vw) * var(--multiplier));
+}
+
+@mixin h6() {
+    font-size           : calc(var(--font-size-h6) / var(--vw) * var(--multiplier));
+}
+
+@mixin p() {
+    font-size           : calc(var(--font-size-p) / var(--vw) * var(--multiplier));
+}
+
+@mixin small() {
+    font-size           : calc(var(--font-size-small) / var(--vw) * var(--multiplier));
+}
+
+@mixin smallest() {
+    font-size           : calc(var(--font-size-smallest) / var(--vw) * var(--multiplier));
+}
+
 // -------------------- Column Properties -------------------- //
 
 @mixin column-properties() {
