@@ -32,7 +32,7 @@
     // Transition
 
     --cubic-bezier-1                                            : cubic-bezier(0.625, 0.05, 0, 1);;
-    --cubic-bezier-2                                            : cubic-bezier(0.4, 0, 0.7, 1);
+    --cubic-bezier-2                                            : cubic-bezier(0.75, 0, 0.175, 1);
     --cubic-bezier-3                                            : cubic-bezier(0.35, 1, 0.70, 1);
     --cubic-bezier-4                                            : cubic-bezier(0.25, 0.1, 0, 2.05);
 
@@ -107,7 +107,7 @@
     --font-size-h5                                              : 20;
     --font-size-h6                                              : 16;
     --font-size-p                                               : 15;
-    --font-size-small                                           : 13;
+    --font-size-small                                           : 12;
     --font-size-smallest                                        : 10;
 
     // Letter Spacing
@@ -169,6 +169,10 @@ body {
     color                       : var(--color-white);
 
     background                  : var(--color-black);
+
+    &.active {
+        @include overflow-hidden;
+    }
 
     &.icv__body {
         overflow                : auto !important;
@@ -295,7 +299,7 @@ a, button {
 // Grid
 
 .container {
-    max-width                   : 82.5%;
+    max-width                   : 85%;
 
     padding                     : calc(125 / var(--vw) * var(--multiplier)) calc(15 / var(--vw) * var(--multiplier));
 }
@@ -1203,7 +1207,7 @@ a, button {
     font-weight         : var(--font-weight-link);
     font-size           : calc(var(--font-size-link) / var(--vw) * var(--multiplier));
 
-    letter-spacing      : calc(1.5 / var(--vw) * var(--multiplier));
+    letter-spacing      : calc(1 / var(--vw) * var(--multiplier));
 
     line-height         : 1.25;
 

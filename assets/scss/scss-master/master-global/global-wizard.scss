@@ -113,27 +113,24 @@
     // Primary
 
     &.primary {
-        @include position-fixed;
-
-        @include width-100;
-
         @include p-0;
 
         z-index                     : 1040;
 
-        top                         : 50%;
-
-        transform                   : translateY(-50%);
-
         .navbar-wrapper {
+            @include position-fixed;
+
+            @include width-100;
 
             // Primary
 
             &.primary {
-                @include display-flex;
+                z-index                     : 1040;
 
-                @include width-100;
+                top                         : 27.25%;
 
+                transform                   : translateY(-50%);
+                
                 .container {
                     @include display-flex;
 
@@ -144,6 +141,73 @@
                     justify-content         : space-between;
 
                     max-width               : 85%;
+                }
+            }
+
+            // Secondary
+
+            &.secondary {
+                pointer-events              : none;
+
+                z-index                     : 1000;
+
+                top                         : 0;
+                left                        : calc(-10 / var(--vw) * var(--multiplier));
+
+                &.active {
+                    pointer-events          : auto;
+                }
+
+                .wrapper-inner {
+                    @include display-flex;
+                    
+                    pointer-events          : none;
+
+                    flex-direction          : column;
+                    
+                    height                  : 100vh;
+
+                    background              : rgba($color-black, 1);
+
+                    clip-path               : polygon(0 0, 100% 0, 100% 0, 0 0);
+
+                    transition              : 1s var(--cubic-bezier-2);
+
+                    &.active {
+                        pointer-events      : auto;
+
+                        clip-path           : polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+                    }
+                }
+
+                .col-wrapper-outer {
+                    @include col-12;
+
+                    .col-wrapper-inner {
+                        @include col-6;
+
+                        @include px-0;
+
+                        .navbar-link {
+                            width           : 30%;
+
+                            transform       : translateY(calc(390 / var(--vw) * var(--multiplier)));
+                        }
+
+                        &:nth-child(1) {
+                            .navbar-link {
+                                @include ml-auto;
+
+                                margin-right        : calc(125 / var(--vw) * var(--multiplier));
+                            }
+                        }
+                      
+                        &:nth-child(2) {
+                            .navbar-link {
+                                @include mx-auto;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -260,7 +324,7 @@
                         
                         flex-direction          : column;
 
-                        height                  : 100vh;
+                        height                  : 87.5vh;
                     }
                 }
             }
@@ -334,93 +398,6 @@
 
             &.primary {
                 @include position-relative;
-
-                // Header
-
-                .hero-header {
-                    @include position-absolute;
-
-                    @include width-100;
-
-                    @include p-0;
-
-                    z-index                     : 1040;
-
-                    top                         : 50%;
-
-                    transform                   : translateY(-50%);
-
-                    .header-wrapper {
-
-                        // Primary
-
-                        &.primary {
-                            @include display-flex;
-
-                            @include align-items-center;
-
-                            justify-content             : space-between;
-
-                            .header-brand {
-                                @include position-fixed;
-
-                                @include text-align-center;
-
-                                @include m-0;
-
-                                @include font-primary;
-                                @include h3;
-
-                                @include text-transform-uppercase;
-
-                                @include text-decoration-none;
-
-                                color                   : var(--color-white);
-
-                                top                     : 50%;
-                                left                    : 49%;
-
-                                transform               : translate(-45%, -50%);
-
-                                > span {
-                                    @include display-block;
-
-                                    line-height         : 1; 
-
-                                    &.title {
-                                        @include mb-2;
-                                    }
-
-                                    &.caption {
-                                        @include small;
-                                    }
-                                }
-                            }
-
-                            // Navbar Nav
-
-                            .header-nav {
-
-                                // Primary
-
-                                &.primary {
-                                    @include p-0;
-                                    @include m-0;
-
-                                    list-style              : none;
-
-                                    .nav-item {
-                                        .nav-link {
-                                            @include p-0;
-
-                                            @include small;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
 
                 // Content
 
