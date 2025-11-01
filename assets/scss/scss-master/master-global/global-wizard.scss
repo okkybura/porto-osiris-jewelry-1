@@ -115,7 +115,17 @@
     &.primary {
         @include p-0;
 
+        pointer-events              : auto;
+
         z-index                     : 1040;
+
+        transition                  : 0.75s var(--cubic-bezier-1);
+
+        &.scroll {
+            pointer-events          : none;
+
+            opacity                 : 0;
+        }
 
         .navbar-wrapper {
 
@@ -177,17 +187,53 @@
 
                     transform               : translateX(-54.5%);
 
+                    &.hide {
+                        > span {
+                            &.text {
+                                > span {
+                                    transition-delay    : 0.25s;
+                                }
+                            }
+
+                            &.caption {
+                                > span {
+                                    transition-delay    : 0s;
+                                }
+                            }
+
+                            > span {
+                                transform               : translateY(-100%);
+
+                                opacity                 : 0;
+                            }
+                        }
+                    }
+
                     > span {
                         @include display-block;
 
+                        @include overflow-hidden;
+
                         line-height         : 1; 
 
-                        &.title {
-                            @include mb-2;
+                        &.text {
+                            @include mb-1;
+
+                            > span {
+                                transition-delay    : 0.25s;
+                            }
                         }
 
                         &.caption {
                             @include small;
+
+                            > span {
+                                transition-delay    : 0.5s;
+                            }
+                        }
+
+                        > span {
+                            @include display-inline-block;
                         }
                     }
                 }
@@ -200,9 +246,13 @@
                     top                         : -5%;
                     left                        : 50%;
 
-                    transform                   : translateX(-70%);
+                    transform                   : translateX(-75%) scale(0);
 
-                    transition                  : unset;
+                    &.show {
+                        transition-delay        : 0.25s;
+
+                        transform               : translateX(-75%) scale(1);
+                    }
 
                     > span {
                         @include display-inline-flex;
@@ -211,8 +261,8 @@
 
                         justify-content             : center;
 
-                        width                       : calc(40 / var(--vw) * var(--multiplier));
-                        height                      : calc(40 / var(--vw) * var(--multiplier));
+                        width                       : calc(45 / var(--vw) * var(--multiplier));
+                        height                      : calc(45 / var(--vw) * var(--multiplier));
 
                         border                      : calc(1 / var(--vw) * var(--multiplier)) solid var(--color-white);
                         border-radius               : 100%;
@@ -231,7 +281,11 @@
                 }
 
                 .navbar-menu {
+                    pointer-events                  : none;
+
                     &.active {
+                        pointer-events              : auto;
+                        
                         .menu-link {
                             .link {
                                 opacity             : 1;
@@ -250,6 +304,8 @@
 
                     .menu-link {
                         .link {
+                            width                       : max-content;
+                            
                             opacity                     : 0;
 
                             transform                   : translateY(calc(15 / var(--vw) * var(--multiplier)));
@@ -273,12 +329,14 @@
 
             @include position-fixed;
 
-            @include width-100;
-
             z-index                     : 10;
 
+            width                       : calc(100% + 1rem);
+
             top                         : 0;
-            left                        : calc(-10.5 / var(--vw) * var(--multiplier));
+            left                        : 0;
+
+            transform                   : translateX(-1rem);
 
             .background {
                 @include display-block;
@@ -437,73 +495,6 @@
             &.primary {
                 @include position-relative;
 
-                // Header
-
-                .hero-header {
-                    .container {
-                        @include p-0;
-                    }
-
-                    .header-wrapper {
-
-                        // Primary
-
-                        &.primary {
-                            @include position-absolute;
-
-                            @include width-100;
-
-                            z-index                 : 1040;
-
-                            top                     : 50%;
-                            
-                            transform               : translateY(-50%);
-
-                            .col-wrapper-outer {
-                                @include col-12;
-
-                                .col-wrapper-inner {
-                                    @include col-3;
-                                }
-                            }
-                        }
-                    }
-
-                    .header-background {
-                        @include display-flex;
-
-                        @include position-fixed;
-
-                        @include width-100;
-
-                        z-index                     : 10;
-
-                        top                         : 0;
-                        left                        : calc(-10.5 / var(--vw) * var(--multiplier));
-
-                        .background {
-                            @include display-block;
-
-                            pointer-events          : none;
-
-                            width                   : 50%;
-                            height                  : 100vh;
-
-                            background              : rgba($color-black, 1);
-
-                            clip-path               : polygon(0 0, 100% 0, 100% 0, 0 0);
-
-                            transition              : 1s var(--cubic-bezier-2);
-
-                            &.active {
-                                pointer-events      : auto;
-
-                                clip-path           : polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-                            }
-                        }
-                    }
-                }
-
                 // Content
 
                 .hero-content {
@@ -531,7 +522,28 @@
 
                         &.primary {
                             .content-image {
+                                @include overflow-hidden;
+
                                 .image {
+                                    @include position-absolute;
+
+                                    top                     : 0;
+                                    left                    : 0;
+
+                                    &.image-collection, &.image-navigation {
+                                        opacity             : 0;
+
+                                        transform           : scale(1.075);
+
+                                        transition          : transform 1.5s var(--cubic-bezier-5), opacity 0.25s;
+
+                                        &.active {
+                                            opacity         : 1;
+
+                                            transform       : scale(1);
+                                        }
+                                    }
+
                                     img {
                                         transform           : scale(1.025);
                                     }

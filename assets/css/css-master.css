@@ -9919,6 +9919,7 @@ textarea.form-control-lg {
   --cubic-bezier-2: cubic-bezier(0.75, 0, 0.175, 1);
   --cubic-bezier-3: cubic-bezier(0.35, 1, 0.70, 1);
   --cubic-bezier-4: cubic-bezier(0.25, 0.1, 0, 2.05);
+  --cubic-bezier-5: cubic-bezier(.22,1,.36,1);
   --font-family-primary: "Raymond";
   --font-family-secondary: "Spectral";
   --font-family-general: "Spectral";
@@ -11004,7 +11005,6 @@ a ::before, a ::after, button ::before, button ::after {
   font-weight: var(--font-weight-link);
   font-size: calc(var(--font-size-link) / var(--vw) * var(--multiplier));
   letter-spacing: calc(1 / var(--vw) * var(--multiplier));
-  line-height: 1.25;
 }
 .link-default > span.wrapper {
   position: relative;
@@ -11407,7 +11407,13 @@ a ::before, a ::after, button ::before, button ::after {
 
 .navbar.primary {
   padding: 0 !important;
+  pointer-events: auto;
   z-index: 1040;
+  transition: 0.75s var(--cubic-bezier-1);
+}
+.navbar.primary.scroll {
+  pointer-events: none;
+  opacity: 0;
 }
 .navbar.primary .navbar-wrapper.primary {
   position: fixed;
@@ -11474,30 +11480,53 @@ a ::before, a ::after, button ::before, button ::after {
   left: 50%;
   transform: translateX(-54.5%);
 }
+.navbar.primary .navbar-wrapper.primary .navbar-brand.hide > span.text > span {
+  transition-delay: 0.25s;
+}
+.navbar.primary .navbar-wrapper.primary .navbar-brand.hide > span.caption > span {
+  transition-delay: 0s;
+}
+.navbar.primary .navbar-wrapper.primary .navbar-brand.hide > span > span {
+  transform: translateY(-100%);
+  opacity: 0;
+}
 .navbar.primary .navbar-wrapper.primary .navbar-brand > span {
   display: block;
+  overflow: hidden;
   line-height: 1;
 }
-.navbar.primary .navbar-wrapper.primary .navbar-brand > span.title {
-  margin-bottom: calc(10 / var(--vw) * var(--multiplier)) !important;
+.navbar.primary .navbar-wrapper.primary .navbar-brand > span.text {
+  margin-bottom: calc(5 / var(--vw) * var(--multiplier)) !important;
+}
+.navbar.primary .navbar-wrapper.primary .navbar-brand > span.text > span {
+  transition-delay: 0.25s;
 }
 .navbar.primary .navbar-wrapper.primary .navbar-brand > span.caption {
   font-size: calc(var(--font-size-small) / var(--vw) * var(--multiplier));
+}
+.navbar.primary .navbar-wrapper.primary .navbar-brand > span.caption > span {
+  transition-delay: 0.5s;
+}
+.navbar.primary .navbar-wrapper.primary .navbar-brand > span > span {
+  display: inline-block;
 }
 .navbar.primary .navbar-wrapper.primary .navbar-button {
   position: fixed;
   z-index: 1050;
   top: -5%;
   left: 50%;
-  transform: translateX(-70%);
-  transition: unset;
+  transform: translateX(-75%) scale(0);
+}
+.navbar.primary .navbar-wrapper.primary .navbar-button.show {
+  transition-delay: 0.25s;
+  transform: translateX(-75%) scale(1);
 }
 .navbar.primary .navbar-wrapper.primary .navbar-button > span {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: calc(40 / var(--vw) * var(--multiplier));
-  height: calc(40 / var(--vw) * var(--multiplier));
+  width: calc(45 / var(--vw) * var(--multiplier));
+  height: calc(45 / var(--vw) * var(--multiplier));
   border: calc(1 / var(--vw) * var(--multiplier)) solid var(--color-white);
   border-radius: 100%;
   transition: unset;
@@ -11508,6 +11537,12 @@ a ::before, a ::after, button ::before, button ::after {
 }
 .navbar.primary .navbar-wrapper.primary .navbar-button > span svg path {
   fill: var(--color-white);
+}
+.navbar.primary .navbar-wrapper.primary .navbar-menu {
+  pointer-events: none;
+}
+.navbar.primary .navbar-wrapper.primary .navbar-menu.active {
+  pointer-events: auto;
 }
 .navbar.primary .navbar-wrapper.primary .navbar-menu.active .menu-link .link {
   opacity: 1;
@@ -11544,6 +11579,7 @@ a ::before, a ::after, button ::before, button ::after {
   transition-delay: 1.1s;
 }
 .navbar.primary .navbar-wrapper.primary .navbar-menu .menu-link .link {
+  width: max-content;
   opacity: 0;
   transform: translateY(calc(15 / var(--vw) * var(--multiplier)));
   transition: 0.75s var(--cubic-bezier-1);
@@ -11581,10 +11617,11 @@ a ::before, a ::after, button ::before, button ::after {
 .navbar.primary .navbar-background {
   display: flex;
   position: fixed;
-  width: 100% !important;
   z-index: 10;
+  width: calc(100% + 1rem);
   top: 0;
-  left: calc(-10.5 / var(--vw) * var(--multiplier));
+  left: 0;
+  transform: translateX(-1rem);
 }
 .navbar.primary .navbar-background .background {
   display: block;
@@ -11669,57 +11706,6 @@ a ::before, a ::after, button ::before, button ::after {
 .wizard .theme.hero.primary {
   position: relative;
 }
-.wizard .theme.hero.primary .hero-header .container {
-  padding: 0 !important;
-}
-.wizard .theme.hero.primary .hero-header .header-wrapper.primary {
-  position: absolute;
-  width: 100% !important;
-  z-index: 1040;
-  top: 50%;
-  transform: translateY(-50%);
-}
-.wizard .theme.hero.primary .hero-header .header-wrapper.primary .col-wrapper-outer {
-  position: relative;
-  width: 100%;
-  min-height: 1%;
-  padding: 0 calc(15 / var(--vw) * var(--multiplier));
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 100%;
-  flex: 0 0 100%;
-  max-width: 100%;
-}
-.wizard .theme.hero.primary .hero-header .header-wrapper.primary .col-wrapper-outer .col-wrapper-inner {
-  position: relative;
-  width: 100%;
-  min-height: 1%;
-  padding: 0 calc(15 / var(--vw) * var(--multiplier));
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 25%;
-  flex: 0 0 25%;
-  max-width: 25%;
-}
-.wizard .theme.hero.primary .hero-header .header-background {
-  display: flex;
-  position: fixed;
-  width: 100% !important;
-  z-index: 10;
-  top: 0;
-  left: calc(-10.5 / var(--vw) * var(--multiplier));
-}
-.wizard .theme.hero.primary .hero-header .header-background .background {
-  display: block;
-  pointer-events: none;
-  width: 50%;
-  height: 100vh;
-  background: #030301;
-  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-  transition: 1s var(--cubic-bezier-2);
-}
-.wizard .theme.hero.primary .hero-header .header-background .background.active {
-  pointer-events: auto;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
 .wizard .theme.hero.primary .hero-content {
   overflow: hidden;
   height: 100vh;
@@ -11748,6 +11734,23 @@ a ::before, a ::after, button ::before, button ::after {
   max-width: 50%;
   padding-left: 0 !important;
   padding-right: 0 !important;
+}
+.wizard .theme.hero.primary .hero-content .content-wrapper.primary .content-image {
+  overflow: hidden;
+}
+.wizard .theme.hero.primary .hero-content .content-wrapper.primary .content-image .image {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.wizard .theme.hero.primary .hero-content .content-wrapper.primary .content-image .image.image-collection, .wizard .theme.hero.primary .hero-content .content-wrapper.primary .content-image .image.image-navigation {
+  opacity: 0;
+  transform: scale(1.075);
+  transition: transform 1.5s var(--cubic-bezier-5), opacity 0.25s;
+}
+.wizard .theme.hero.primary .hero-content .content-wrapper.primary .content-image .image.image-collection.active, .wizard .theme.hero.primary .hero-content .content-wrapper.primary .content-image .image.image-navigation.active {
+  opacity: 1;
+  transform: scale(1);
 }
 .wizard .theme.hero.primary .hero-content .content-wrapper.primary .content-image .image img {
   transform: scale(1.025);
