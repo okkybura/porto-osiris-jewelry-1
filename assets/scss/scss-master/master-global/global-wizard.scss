@@ -113,11 +113,17 @@
     // Primary
 
     &.primary {
+        @include position-absolute;
+
+        @include width-100;
+
         @include p-0;
 
         pointer-events              : auto;
 
         z-index                     : 1040;
+
+        height                      : 100vh;
 
         transition                  : 0.75s var(--cubic-bezier-1);
 
@@ -138,7 +144,7 @@
 
                 z-index                 : 1040;
 
-                top                     : 37.25%;
+                top                     : 35%;
                 
                 transform               : translateY(-50%);
 
@@ -283,9 +289,11 @@
                 .navbar-menu {
                     pointer-events                  : none;
 
-                    &.active {
+                    &.point-auto {
                         pointer-events              : auto;
-                        
+                    }
+
+                    &.active {
                         .menu-link {
                             .link {
                                 opacity             : 1;

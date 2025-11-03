@@ -9903,7 +9903,7 @@ textarea.form-control-lg {
   font-display: swap;
 }
 :root {
-  --vw: 1700;
+  --vw: 1650;
   --multiplier: 100vw;
   --color-primary: #000000;
   --color-secondary: #000000;
@@ -11406,9 +11406,12 @@ a ::before, a ::after, button ::before, button ::after {
 }
 
 .navbar.primary {
+  position: absolute;
+  width: 100% !important;
   padding: 0 !important;
   pointer-events: auto;
   z-index: 1040;
+  height: 100vh;
   transition: 0.75s var(--cubic-bezier-1);
 }
 .navbar.primary.scroll {
@@ -11419,7 +11422,7 @@ a ::before, a ::after, button ::before, button ::after {
   position: fixed;
   width: 100% !important;
   z-index: 1040;
-  top: 37.25%;
+  top: 35%;
   transform: translateY(-50%);
 }
 .navbar.primary .navbar-wrapper.primary .container {
@@ -11541,7 +11544,7 @@ a ::before, a ::after, button ::before, button ::after {
 .navbar.primary .navbar-wrapper.primary .navbar-menu {
   pointer-events: none;
 }
-.navbar.primary .navbar-wrapper.primary .navbar-menu.active {
+.navbar.primary .navbar-wrapper.primary .navbar-menu.point-auto {
   pointer-events: auto;
 }
 .navbar.primary .navbar-wrapper.primary .navbar-menu.active .menu-link .link {
