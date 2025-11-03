@@ -11400,6 +11400,75 @@ a ::before, a ::after, button ::before, button ::after {
   }
 }
 
+body .content .loader {
+  position: fixed;
+  width: 100% !important;
+  z-index: 1050;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: var(--color-black);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  transition: 1.75s var(--cubic-bezier-2);
+}
+body .content .loader .loader-logo {
+  position: absolute;
+  text-align: center;
+  font-family: var(--font-family-primary);
+  font-size: calc(var(--font-size-h3) / var(--vw) * var(--multiplier));
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-white);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+body .content .loader .loader-logo > span {
+  display: block;
+  overflow: hidden;
+  line-height: 1;
+}
+body .content .loader .loader-logo > span > span {
+  transform: translateY(100%);
+  transition: 0.75s var(--cubic-bezier-2);
+}
+body .content .loader .loader-logo > span.text {
+  margin-bottom: calc(5 / var(--vw) * var(--multiplier)) !important;
+}
+body .content .loader .loader-logo > span.text > span {
+  transition-delay: 0.15s;
+}
+body .content .loader .loader-logo > span.caption {
+  font-size: calc(var(--font-size-small) / var(--vw) * var(--multiplier));
+}
+body .content .loader .loader-logo > span.caption > span {
+  transition-delay: 0.3s;
+}
+body .content .loader .loader-logo > span > span {
+  display: inline-block;
+}
+body .content #smooth-wrapper {
+  transform: translateY(20rem);
+  transition: 2s var(--cubic-bezier-2);
+}
+body .content.page-load-progress .loader .loader-logo > span > span {
+  transform: translateY(0);
+}
+body .content.page-load-complete #smooth-wrapper {
+  transform: translateY(0);
+}
+body .content.page-load-complete .loader {
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+body .content.page-load-complete .loader .loader-logo > span > span {
+  transform: translateY(-100%);
+}
+body .content.page-load-complete .loader .loader-logo > span.text > span {
+  transition-delay: 0.3s;
+}
+body .content.page-load-complete .loader .loader-logo > span.caption > span {
+  transition-delay: 0.15s;
+}
 .page .page-content {
   position: relative;
   z-index: 20;
@@ -11621,10 +11690,10 @@ a ::before, a ::after, button ::before, button ::after {
   display: flex;
   position: fixed;
   z-index: 10;
-  width: calc(100% + 1rem);
+  width: calc(100% + 20 / var(--vw) * var(--multiplier));
   top: 0;
   left: 0;
-  transform: translateX(-1rem);
+  transform: translateX(calc(-20 / var(--vw) * var(--multiplier)));
 }
 .navbar.primary .navbar-background .background {
   display: block;

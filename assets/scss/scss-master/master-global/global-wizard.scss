@@ -96,6 +96,154 @@
     }
 }
 
+// Body
+
+body {
+    .content {
+        .loader {
+            @include position-fixed;
+            
+            @include width-100;
+
+            z-index                 : 1050;
+
+            height                  : 100vh;
+
+            top                     : 0;
+            left                    : 0;
+
+            background              : var(--color-black);
+
+            clip-path               : polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+            transition              : 1.75s var(--cubic-bezier-2);
+
+            .loader-logo {
+                @include position-absolute;
+
+                @include text-align-center;
+
+                @include font-primary;
+                @include h3;
+
+                @include text-transform-uppercase;
+
+                @include text-decoration-none;
+
+                color               : var(--color-white);
+
+                top                 : 50%;
+                left                : 50%;
+
+                transform           : translate(-50%, -50%);
+
+                > span {
+                    @include display-block;
+
+                    @include overflow-hidden;
+
+                    line-height         : 1; 
+
+                    > span {
+                        transform       : translateY(100%);
+
+                        transition      : 0.75s var(--cubic-bezier-2);
+                    }
+
+                    &.text {
+                        @include mb-1;
+
+                        > span {
+                            transition-delay    : 0.15s;
+                        }
+                    }
+
+                    &.caption {
+                        @include small;
+
+                        > span {
+                            transition-delay    : 0.30s;
+                        }
+                    }
+
+                    > span {
+                        @include display-inline-block;
+                    }
+                }
+            }
+        }
+
+        // #smooth-wrapper {
+        //     transform               : translateY(20rem);
+
+        //     transition              : 2s var(--cubic-bezier-2);
+        // }
+
+        &.page-load-start {
+
+            .page-wrapper {
+
+                // Primary
+
+                &.primary {
+
+                }
+            }
+        }
+
+        &.page-load-progress {
+            .loader {
+                .loader-logo {
+                    > span {
+                        > span {
+                            transform           : translateY(0);
+                        }
+                    }
+                }
+            }
+        }
+
+        &.page-load-complete {
+            // #smooth-wrapper {
+            //     transform                       : translateY(0);
+            // }
+
+            .loader {
+                clip-path                       : polygon(0 0, 100% 0, 100% 0, 0 0);
+                
+                .loader-logo {
+                    > span {
+                        > span {
+                            transform           : translateY(-100%);
+                        }
+
+                        &.text {
+                            > span {
+                                transition-delay    : 0.30s;
+                            }
+                        }
+
+                        &.caption {
+                            > span {
+                                transition-delay    : 0.15s;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .page-wrapper {
+
+                // Primary
+
+                &.primary {
+
+                }
+            }
+        }
+    }
+}
+
 // Page
 
 .page {
@@ -105,6 +253,8 @@
         z-index             : 20;
     }
 }
+
+
 
 // Navbar
 
@@ -339,12 +489,12 @@
 
             z-index                     : 10;
 
-            width                       : calc(100% + 1rem);
+            width                       : calc(100% +  calc(20 / var(--vw) * var(--multiplier)));
 
             top                         : 0;
             left                        : 0;
 
-            transform                   : translateX(-1rem);
+            transform                   : translateX(calc(-20 / var(--vw) * var(--multiplier)));
 
             .background {
                 @include display-block;
