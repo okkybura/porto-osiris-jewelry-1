@@ -11403,13 +11403,12 @@ a ::before, a ::after, button ::before, button ::after {
 body .content .loader {
   position: fixed;
   width: 100% !important;
+  pointer-events: none;
   z-index: 1050;
   height: 100vh;
   top: 0;
   left: 0;
-  background: var(--color-black);
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-  transition: 1.75s var(--cubic-bezier-2);
+  background: transparent;
 }
 body .content .loader .loader-logo {
   position: absolute;
@@ -11419,6 +11418,7 @@ body .content .loader .loader-logo {
   text-transform: uppercase;
   text-decoration: none;
   color: var(--color-white);
+  letter-spacing: calc(1 / var(--vw) * var(--multiplier));
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -11429,7 +11429,6 @@ body .content .loader .loader-logo > span {
   line-height: 1;
 }
 body .content .loader .loader-logo > span > span {
-  transform: translateY(100%);
   transition: 0.75s var(--cubic-bezier-2);
 }
 body .content .loader .loader-logo > span.text {
@@ -11447,21 +11446,27 @@ body .content .loader .loader-logo > span.caption > span {
 body .content .loader .loader-logo > span > span {
   display: inline-block;
 }
-body .content #smooth-wrapper {
-  transform: translateY(20rem);
-  transition: 2s var(--cubic-bezier-2);
+body .content.page-load-start .wizard .theme.hero.primary .hero-content .col-content-outer .col-content-inner:nth-child(1) .content-wrapper.primary .content-image {
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+body .content.page-load-start .wizard .theme.hero.primary .hero-content .col-content-outer .col-content-inner:nth-child(1) .content-wrapper.primary .content-image .image img {
+  transform: translateY(calc(-150 / var(--vw) * var(--multiplier)));
+}
+body .content.page-load-start .wizard .theme.hero.primary .hero-content .col-content-outer .col-content-inner:nth-child(2) .content-wrapper.primary .content-image {
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+}
+body .content.page-load-start .wizard .theme.hero.primary .hero-content .col-content-outer .col-content-inner:nth-child(2) .content-wrapper.primary .content-image .image img {
+  transform: translateY(calc(150 / var(--vw) * var(--multiplier)));
+}
+body .content.page-load-start .wizard .theme.hero.primary .hero-content .content-wrapper.primary .content-image {
+  height: 100vh;
+  transition: 1.5s var(--cubic-bezier-2);
+}
+body .content.page-load-start .wizard .theme.hero.primary .hero-content .content-wrapper.primary .content-image .image img {
+  transition: 1.5s var(--cubic-bezier-2);
 }
 body .content.page-load-progress .loader .loader-logo > span > span {
   transform: translateY(0);
-}
-body .content.page-load-complete #smooth-wrapper {
-  transform: translateY(0);
-}
-body .content.page-load-complete .loader {
-  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-}
-body .content.page-load-complete .loader .loader-logo > span > span {
-  transform: translateY(-100%);
 }
 body .content.page-load-complete .loader .loader-logo > span.text > span {
   transition-delay: 0.3s;
@@ -11469,6 +11474,19 @@ body .content.page-load-complete .loader .loader-logo > span.text > span {
 body .content.page-load-complete .loader .loader-logo > span.caption > span {
   transition-delay: 0.15s;
 }
+body .content.page-load-complete .wizard .theme.hero.primary .hero-content .col-content-outer .col-content-inner:nth-child(1) .content-wrapper.primary .content-image {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+body .content.page-load-complete .wizard .theme.hero.primary .hero-content .col-content-outer .col-content-inner:nth-child(1) .content-wrapper.primary .content-image .image img {
+  transform: translateY(0);
+}
+body .content.page-load-complete .wizard .theme.hero.primary .hero-content .col-content-outer .col-content-inner:nth-child(2) .content-wrapper.primary .content-image {
+  clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
+}
+body .content.page-load-complete .wizard .theme.hero.primary .hero-content .col-content-outer .col-content-inner:nth-child(2) .content-wrapper.primary .content-image .image img {
+  transform: translateY(0);
+}
+
 .page .page-content {
   position: relative;
   z-index: 20;
@@ -11491,7 +11509,7 @@ body .content.page-load-complete .loader .loader-logo > span.caption > span {
   position: fixed;
   width: 100% !important;
   z-index: 1040;
-  top: 35%;
+  top: 34%;
   transform: translateY(-50%);
 }
 .navbar.primary .navbar-wrapper.primary .container {
@@ -11548,9 +11566,10 @@ body .content.page-load-complete .loader .loader-logo > span.caption > span {
   text-transform: uppercase;
   text-decoration: none;
   color: var(--color-white);
+  letter-spacing: calc(1 / var(--vw) * var(--multiplier));
   top: -6.5%;
   left: 50%;
-  transform: translateX(-54.5%);
+  transform: translateX(-50%);
 }
 .navbar.primary .navbar-wrapper.primary .navbar-brand.hide > span.text > span {
   transition-delay: 0.25s;
@@ -11587,11 +11606,11 @@ body .content.page-load-complete .loader .loader-logo > span.caption > span {
   z-index: 1050;
   top: -5%;
   left: 50%;
-  transform: translateX(-75%) scale(0);
+  transform: translateX(-50%) scale(0);
 }
 .navbar.primary .navbar-wrapper.primary .navbar-button.show {
   transition-delay: 0.25s;
-  transform: translateX(-75%) scale(1);
+  transform: translateX(-50%) scale(1);
 }
 .navbar.primary .navbar-wrapper.primary .navbar-button > span {
   display: inline-flex;
@@ -11690,10 +11709,10 @@ body .content.page-load-complete .loader .loader-logo > span.caption > span {
   display: flex;
   position: fixed;
   z-index: 10;
-  width: calc(100% + 20 / var(--vw) * var(--multiplier));
+  width: calc(100% + 40 / var(--vw) * var(--multiplier));
   top: 0;
   left: 0;
-  transform: translateX(calc(-20 / var(--vw) * var(--multiplier)));
+  transform: translateX(calc(-21 / var(--vw) * var(--multiplier)));
 }
 .navbar.primary .navbar-background .background {
   display: block;
@@ -11743,6 +11762,7 @@ body .content.page-load-complete .loader .loader-logo > span.caption > span {
   font-family: var(--font-family-primary);
   font-size: calc(var(--font-size-h4) / var(--vw) * var(--multiplier));
   text-transform: uppercase;
+  letter-spacing: calc(1 / var(--vw) * var(--multiplier));
 }
 .footbar.primary .footbar-link {
   display: flex;
@@ -11773,7 +11793,7 @@ body .content.page-load-complete .loader .loader-logo > span.caption > span {
 .wizard section {
   position: relative;
   z-index: 10;
-  background: var(--color-white);
+  background: var(--color-black);
 }
 .wizard .theme.hero.primary {
   position: relative;
@@ -11807,8 +11827,63 @@ body .content.page-load-complete .loader .loader-logo > span.caption > span {
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
-.wizard .theme.hero.primary .hero-content .content-wrapper.primary .content-image {
+.wizard .theme.hero.primary .hero-content .col-content-outer .col-content-inner:nth-child(1) .content-wrapper.primary .content-carousel .carousel-cell {
+  clip-path: inset(100% 0 0 0);
+}
+.wizard .theme.hero.primary .hero-content .col-content-outer .col-content-inner:nth-child(1) .content-wrapper.primary .content-carousel .carousel-cell img {
+  transform: translateY(calc(150 / var(--vw) * var(--multiplier)));
+}
+.wizard .theme.hero.primary .hero-content .col-content-outer .col-content-inner:nth-child(1) .content-wrapper.primary .content-carousel .carousel-cell.leaving {
+  clip-path: inset(0 0 100% 0);
+}
+.wizard .theme.hero.primary .hero-content .col-content-outer .col-content-inner:nth-child(1) .content-wrapper.primary .content-carousel .carousel-cell.leaving img {
+  transform: translateY(calc(-150 / var(--vw) * var(--multiplier)));
+}
+.wizard .theme.hero.primary .hero-content .col-content-outer .col-content-inner:nth-child(1) .content-wrapper.primary .content-carousel .carousel-cell.active {
+  clip-path: inset(-0.5% 0 0 0);
+}
+.wizard .theme.hero.primary .hero-content .col-content-outer .col-content-inner:nth-child(1) .content-wrapper.primary .content-carousel .carousel-cell.active img {
+  transform: translateY(0);
+}
+.wizard .theme.hero.primary .hero-content .col-content-outer .col-content-inner:nth-child(2) .content-wrapper.primary .content-carousel .carousel-cell {
+  clip-path: inset(0 0 100% 0);
+}
+.wizard .theme.hero.primary .hero-content .col-content-outer .col-content-inner:nth-child(2) .content-wrapper.primary .content-carousel .carousel-cell img {
+  transform: translateY(calc(-150 / var(--vw) * var(--multiplier)));
+}
+.wizard .theme.hero.primary .hero-content .col-content-outer .col-content-inner:nth-child(2) .content-wrapper.primary .content-carousel .carousel-cell.leaving {
+  clip-path: inset(100% 0 0 0);
+}
+.wizard .theme.hero.primary .hero-content .col-content-outer .col-content-inner:nth-child(2) .content-wrapper.primary .content-carousel .carousel-cell.leaving img {
+  transform: translateY(calc(150 / var(--vw) * var(--multiplier)));
+}
+.wizard .theme.hero.primary .hero-content .col-content-outer .col-content-inner:nth-child(2) .content-wrapper.primary .content-carousel .carousel-cell.active {
+  clip-path: inset(0 0 -0.5% 0);
+}
+.wizard .theme.hero.primary .hero-content .col-content-outer .col-content-inner:nth-child(2) .content-wrapper.primary .content-carousel .carousel-cell.active img {
+  transform: translateY(0);
+}
+.wizard .theme.hero.primary .hero-content .content-wrapper.primary .content-carousel {
   overflow: hidden;
+}
+.wizard .theme.hero.primary .hero-content .content-wrapper.primary .content-carousel .carousel-cell {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 2s var(--cubic-bezier-2);
+}
+.wizard .theme.hero.primary .hero-content .content-wrapper.primary .content-carousel .carousel-cell img {
+  transition: 2s var(--cubic-bezier-2);
+}
+.wizard .theme.hero.primary .hero-content .content-wrapper.primary .content-image {
+  position: relative;
+  overflow: hidden;
+  z-index: 1020;
+  opacity: 0;
+}
+.wizard .theme.hero.primary .hero-content .content-wrapper.primary .content-image.active {
+  opacity: 1;
+  transition: 0.25s ease !important;
 }
 .wizard .theme.hero.primary .hero-content .content-wrapper.primary .content-image .image {
   position: absolute;

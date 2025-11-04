@@ -70,6 +70,25 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // Splitting Text - General
+
+    document.querySelectorAll('.split-text').forEach(split => {
+        const textSpans = split.querySelectorAll('.split-char');
+
+        textSpans.forEach(textSpan => {
+            const innerText = textSpan.textContent.trim();
+            let charSpans = '';
+
+            innerText.split('').forEach(char => {
+                charSpans += `<span>${char}</span>`;
+            });
+
+            textSpan.innerHTML = `
+                <span>${charSpans}</span>
+            `;
+        });
+    });
+
     // Splitting Text - Title
 
     document.querySelectorAll('.text-title').forEach(title => {
@@ -228,6 +247,7 @@ document.querySelectorAll('.carousel-parallax').forEach(function (carouselElem) 
 
 $('.carousel-single').flickity({
     draggable: false,
+    autoPlay: true,
 });
 
 $('.carousel-triple').flickity({
