@@ -70,23 +70,17 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Splitting Text - General
+    // Splitting Text - General - Character
 
-    document.querySelectorAll('.split-text').forEach(split => {
-        const textSpans = split.querySelectorAll('.split-char');
+    document.querySelectorAll('.split-char').forEach(textSpan => {
+        const innerText = textSpan.textContent.trim();
+        let charSpans = '';
 
-        textSpans.forEach(textSpan => {
-            const innerText = textSpan.textContent.trim();
-            let charSpans = '';
-
-            innerText.split('').forEach(char => {
-                charSpans += `<span>${char}</span>`;
-            });
-
-            textSpan.innerHTML = `
-                <span>${charSpans}</span>
-            `;
+        innerText.split('').forEach(char => {
+            charSpans += `<span>${char}</span>`;
         });
+
+        textSpan.innerHTML = `<span>${charSpans}</span>`;
     });
 
     // Splitting Text - Title

@@ -25,12 +25,12 @@
 
 <body>
 
-    <div class="content">
+    <div class="content page-load">
 
         <!--Page-->
 
         <div class="loader">
-            <div class="loader-logo split-text">
+            <div class="loader-logo">
                 <span class="text split-char">
                     <span>
                         Osiris
@@ -62,13 +62,13 @@
                             </div>
                             <div class="navbar-wrapper primary" data-speed="0.5">
                                 <div class="container">
-                                    <a class="navbar-brand d-none" href="#">
-                                        <span class="text">
+                                    <a class="navbar-brand" href="#">
+                                        <span class="text split-char">
                                             <span>
                                                 Osiris
                                             </span>
                                         </span>
-                                        <span class="caption">
+                                        <span class="caption split-char">
                                             <span>
                                                 Jewelry Website
                                             </span>
@@ -464,9 +464,29 @@
         $(document).ready(function () {
             setTimeout(function () {
                 $('body .content').addClass('page-load-start');
+                disableWheelScroll();
             }, 0);
             setTimeout(function () {
                 $('body .content').addClass('page-load-progress');
+            }, 500);
+            setTimeout(function () {
+                const startDelay = 0.3;
+                const chars = gsap.utils.toArray('.loader .loader-logo .split-char span span');
+
+                gsap.set(chars, {
+                    opacity: 0
+                });
+
+                chars.forEach((charSpan, i) => {
+                    gsap.to(charSpan, {
+                        opacity: 1,
+                        duration: 0.75,
+                        delay: startDelay + i * 0.025,
+                        repeat: 1,
+                        yoyo: true,
+                        ease: "power1.inOut"
+                    });
+                });
             }, 500);
             setTimeout(function () {
                 $('body .content').addClass('page-load-complete');
@@ -532,7 +552,10 @@
                         isPaused = false;
                     });
                 });
-            }, 1000);
+            }, 2000);
+            setTimeout(function () {
+                enableWheelScroll();
+            }, 3000);
         });
     </script>
 
@@ -549,7 +572,7 @@
                 $('#dvMenuNavigation').removeClass('active');
                 $('#bgMenuCollection').toggleClass('active');
 
-                $('.image-navigation').parent().removeClass('active');
+                $('.image-collection').parent().removeClass('active');
 
                 setTimeout(function () {
                     $('#dvMenuCollection').toggleClass('point-auto');
@@ -583,7 +606,7 @@
                 $('#dvMenuNavigation').toggleClass('active');
                 $('#bgMenuNavigation').toggleClass('active');
 
-                $('.image-collection').parent().removeClass('active');
+                $('.image-navigation').parent().removeClass('active');
 
                 setTimeout(function () {
                     $('#dvMenuNavigation').toggleClass('point-auto');
@@ -688,22 +711,8 @@
 
     <script>
         $(document).ready(function () {
-            const totalDuration = 2.5;
 
-            gsap.utils.toArray('.split-char span span').forEach((charSpan, i) => {
-                gsap.fromTo(
-                    charSpan,
-                    { opacity: 0 },
-                    {
-                        opacity: 1,
-                        duration: 0.75,
-                        delay: i * 0.025,
-                        repeat: 1,
-                        yoyo: true
-                    }
-                );
-            });
-  });
+        });
     </script>
 </body>
 </html>
