@@ -778,9 +778,9 @@ body {
 
                     @include text-transform-uppercase;
 
-                    font-size           : calc(275 / var(--vw) * var(--multiplier));
+                    font-size           : calc(200 / var(--vw) * var(--multiplier));
                     
-                    letter-spacing      : calc(40 / var(--vw) * var(--multiplier));
+                    letter-spacing      : calc(25 / var(--vw) * var(--multiplier));
                 }
             }
         }

@@ -11832,8 +11832,8 @@ body .content.page-load-complete .wizard .theme.hero.primary .hero-content .col-
 .footbar.primary .footbar-logo .logo > span {
   font-family: var(--font-family-primary);
   text-transform: uppercase;
-  font-size: calc(275 / var(--vw) * var(--multiplier));
-  letter-spacing: calc(40 / var(--vw) * var(--multiplier));
+  font-size: calc(200 / var(--vw) * var(--multiplier));
+  letter-spacing: calc(25 / var(--vw) * var(--multiplier));
 }
 .footbar.primary .footbar-caption {
   text-align: center;
