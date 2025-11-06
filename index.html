@@ -38,7 +38,7 @@
                 </span>
                 <span class="caption split-char">
                     <span>
-                        Jewelry Website
+                        Jewelry
                     </span>
                 </span>
             </div>
@@ -62,7 +62,7 @@
                             </div>
                             <div class="navbar-wrapper primary" data-speed="0.5">
                                 <div class="container">
-                                    <a class="navbar-brand" href="#">
+                                    <a class="navbar-brand" href="/index.html">
                                         <span class="text split-char">
                                             <span>
                                                 Osiris
@@ -70,7 +70,7 @@
                                         </span>
                                         <span class="caption split-char">
                                             <span>
-                                                Jewelry Website
+                                                Jewelry
                                             </span>
                                         </span>
                                     </a>
@@ -353,7 +353,7 @@
                                                 <div class="footbar-caption">
                                                     <div class="caption">
                                                         <span>
-                                                            Jewelry Website
+                                                            Jewelry
                                                         </span>
                                                     </div>
                                                 </div>
@@ -436,61 +436,9 @@
     <script src="assets/javascript/custom-javascript.js"></script>
 
     <script>
-        // $(document).ready(function () {
 
-        //     // Get existing ScrollSmoother instance
-        //     const smoother = ScrollSmoother.get();
-        //     const hero = document.querySelector('.hero.primary');
+        // Button Magentic
 
-        //     if (!smoother || !hero) return;
-
-        //     // Use GSAP matchMedia for responsive behavior
-        //     ScrollTrigger.matchMedia({
-
-        //         // ✅ Mobile (<=768px)
-        //         "(max-width: 768px)": function () {
-        //             hero.setAttribute('data-speed', '0.5');
-        //             smoother.effects(hero, { speed: 0.5 });
-        //             smoother.refresh();
-        //         },
-
-        //         // ✅ Desktop (>=769px)
-        //         "(min-width: 769px)": function () {
-        //             hero.removeAttribute('data-speed');
-        //             smoother.effects(hero, { speed: 0 });
-        //             smoother.refresh();
-        //         }
-
-        //     });
-        // });
-
-        $(document).ready(function () {
-
-            if (typeof ScrollSmoother === "undefined" || !ScrollSmoother.get()) return;
-
-            ScrollTrigger.matchMedia({
-
-                "(max-width: 768px)": function () {
-                    if (document.querySelector('.hero.primary')) {
-                        document.querySelector('.hero.primary').setAttribute('data-speed', '0.5');
-                        ScrollSmoother.get().effects(document.querySelector('.hero.primary'), { speed: 0.5 });
-                        ScrollSmoother.get().refresh();
-                    }
-                },
-
-                "(min-width: 769px)": function () {
-                    if (document.querySelector('.hero.primary')) {
-                        document.querySelector('.hero.primary').removeAttribute('data-speed');
-                        ScrollSmoother.get().effects(document.querySelector('.hero.primary'), { speed: 0 });
-                        ScrollSmoother.get().refresh();
-                    }
-                }
-
-            });
-        });
-    </script>
-
-    <script>
         var magnets = document.querySelectorAll('.btn-magnetic')
         var strength = 20
 
@@ -525,6 +473,31 @@
         function preventWheel(e) {
             e.preventDefault();
         }
+
+        // Page Transition
+
+        $(document).ready(function () {
+            gsap.fromTo("body",
+                { opacity: 0 },
+                { opacity: 1, duration: 0.75, ease: "cubic-bezier(0.625, 0.05, 0, 1)" }
+            );
+
+            $("a[href]").on("click", function (e) {
+                const href = $(this).attr("href");
+
+                if (!href || href === "#" || href.startsWith("javascript:void")) return;
+
+                e.preventDefault();
+                gsap.to("body", {
+                    opacity: 0,
+                    duration: 0.75,
+                    ease: "cubic-bezier(0.625, 0.05, 0, 1)",
+                    onComplete: () => window.location.href = href
+                });
+            });
+        });
+
+        // Page Loader
 
         $(document).ready(function () {
             setTimeout(function () {
@@ -625,6 +598,9 @@
     </script>
 
     <script>
+
+        // Navbar
+
         $(document).ready(function () {
             $('#anchorMenuCollection').on('click', function (e) {
                 e.preventDefault();
@@ -744,9 +720,7 @@
                 $('.image-navigation').parent().removeClass('active');
             }
         });
-    </script>
 
-    <script>
         $(document).ready(function () {
             $('.link-collection > a').hover(
                 function () {
@@ -779,8 +753,32 @@
     </script>
 
     <script>
+
+        // Section - Hero
+
         $(document).ready(function () {
 
+            if (typeof ScrollSmoother === "undefined" || !ScrollSmoother.get()) return;
+
+            ScrollTrigger.matchMedia({
+
+                "(max-width: 599px)": function () {
+                    if (document.querySelector('.hero.primary')) {
+                        document.querySelector('.hero.primary').setAttribute('data-speed', '0.5');
+                        ScrollSmoother.get().effects(document.querySelector('.hero.primary'), { speed: 0.5 });
+                        ScrollSmoother.get().refresh();
+                    }
+                },
+
+                "(min-width: 600px)": function () {
+                    if (document.querySelector('.hero.primary')) {
+                        document.querySelector('.hero.primary').removeAttribute('data-speed');
+                        ScrollSmoother.get().effects(document.querySelector('.hero.primary'), { speed: 0 });
+                        ScrollSmoother.get().refresh();
+                    }
+                }
+
+            });
         });
     </script>
 </body>

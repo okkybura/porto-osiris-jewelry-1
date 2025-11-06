@@ -543,6 +543,8 @@ body {
 
                     @include text-decoration-none;
 
+                    z-index                 : 1050;
+
                     color                   : var(--color-white);
 
                     letter-spacing          : calc(1 / var(--vw) * var(--multiplier));

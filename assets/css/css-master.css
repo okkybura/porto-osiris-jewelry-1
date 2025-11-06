@@ -11645,6 +11645,7 @@ body .content.page-load-complete .wizard .theme.hero.primary .hero-content .col-
   font-size: calc(var(--font-size-h3) / var(--vw) * var(--multiplier));
   text-transform: uppercase;
   text-decoration: none;
+  z-index: 1050;
   color: var(--color-white);
   letter-spacing: calc(1 / var(--vw) * var(--multiplier));
   top: -6.5%;
