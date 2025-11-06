@@ -240,34 +240,39 @@
                                                                 <div class="content-carousel">
                                                                     <div class="carousel-cell">
                                                                         <div class="cell-outer" data-speed="0.5">
-                                                                            <img src="/assets/images/root/hero-primary-content-image-1.jpg" />
+                                                                            <img src="/assets/images/root/hero-primary-content-image-left-1.jpg" />
                                                                         </div>
                                                                     </div>
                                                                     <div class="carousel-cell">
                                                                         <div class="cell-outer" data-speed="0.5">
-                                                                            <img src="/assets/images/root/hero-primary-content-image-2.jpg" />
+                                                                            <img src="/assets/images/root/hero-primary-content-image-left-2.jpg" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="carousel-cell">
+                                                                        <div class="cell-outer" data-speed="0.5">
+                                                                            <img src="/assets/images/root/hero-primary-content-image-left-3.jpg" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="content-image">
                                                                     <div class="image image-navigation">
                                                                         <div class="image-outer" data-speed="0.5">
-                                                                            <img src="/assets/images/root/hero-primary-content-image-1.jpg" />
+                                                                            <img src="/assets/images/root/hero-primary-content-image-navigation-1.jpg" />
                                                                         </div>
                                                                     </div>
                                                                     <div class="image image-navigation">
                                                                         <div class="image-outer" data-speed="0.5">
-                                                                            <img src="/assets/images/root/hero-primary-content-image-1.jpg" />
+                                                                            <img src="/assets/images/root/hero-primary-content-image-navigation-2.jpg" />
                                                                         </div>
                                                                     </div>
                                                                     <div class="image image-navigation">
                                                                         <div class="image-outer" data-speed="0.5">
-                                                                            <img src="/assets/images/root/hero-primary-content-image-1.jpg" />
+                                                                            <img src="/assets/images/root/hero-primary-content-image-navigation-3.jpg" />
                                                                         </div>
                                                                     </div>
                                                                     <div class="image image-navigation">
                                                                         <div class="image-outer" data-speed="0.5">
-                                                                            <img src="/assets/images/root/hero-primary-content-image-1.jpg" />
+                                                                            <img src="/assets/images/root/hero-primary-content-image-navigation-4.jpg" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -278,12 +283,17 @@
                                                                 <div class="content-carousel">
                                                                     <div class="carousel-cell">
                                                                         <div class="cell-outer" data-speed="0.5">
-                                                                            <img src="/assets/images/root/hero-primary-content-image-2.jpg" />
+                                                                            <img src="/assets/images/root/hero-primary-content-image-right-1.jpg" />
                                                                         </div>
                                                                     </div>
                                                                     <div class="carousel-cell">
                                                                         <div class="cell-outer" data-speed="0.5">
-                                                                            <img src="/assets/images/root/hero-primary-content-image-1.jpg" />
+                                                                            <img src="/assets/images/root/hero-primary-content-image-right-2.jpg" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="carousel-cell">
+                                                                        <div class="cell-outer" data-speed="0.5">
+                                                                            <img src="/assets/images/root/hero-primary-content-image-right-3.jpg" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -426,6 +436,61 @@
     <script src="assets/javascript/custom-javascript.js"></script>
 
     <script>
+        // $(document).ready(function () {
+
+        //     // Get existing ScrollSmoother instance
+        //     const smoother = ScrollSmoother.get();
+        //     const hero = document.querySelector('.hero.primary');
+
+        //     if (!smoother || !hero) return;
+
+        //     // Use GSAP matchMedia for responsive behavior
+        //     ScrollTrigger.matchMedia({
+
+        //         // ✅ Mobile (<=768px)
+        //         "(max-width: 768px)": function () {
+        //             hero.setAttribute('data-speed', '0.5');
+        //             smoother.effects(hero, { speed: 0.5 });
+        //             smoother.refresh();
+        //         },
+
+        //         // ✅ Desktop (>=769px)
+        //         "(min-width: 769px)": function () {
+        //             hero.removeAttribute('data-speed');
+        //             smoother.effects(hero, { speed: 0 });
+        //             smoother.refresh();
+        //         }
+
+        //     });
+        // });
+
+        $(document).ready(function () {
+
+            if (typeof ScrollSmoother === "undefined" || !ScrollSmoother.get()) return;
+
+            ScrollTrigger.matchMedia({
+
+                "(max-width: 768px)": function () {
+                    if (document.querySelector('.hero.primary')) {
+                        document.querySelector('.hero.primary').setAttribute('data-speed', '0.5');
+                        ScrollSmoother.get().effects(document.querySelector('.hero.primary'), { speed: 0.5 });
+                        ScrollSmoother.get().refresh();
+                    }
+                },
+
+                "(min-width: 769px)": function () {
+                    if (document.querySelector('.hero.primary')) {
+                        document.querySelector('.hero.primary').removeAttribute('data-speed');
+                        ScrollSmoother.get().effects(document.querySelector('.hero.primary'), { speed: 0 });
+                        ScrollSmoother.get().refresh();
+                    }
+                }
+
+            });
+        });
+    </script>
+
+    <script>
         var magnets = document.querySelectorAll('.btn-magnetic')
         var strength = 20
 
@@ -552,7 +617,7 @@
                         isPaused = false;
                     });
                 });
-            }, 2000);
+            }, 1750);
             setTimeout(function () {
                 enableWheelScroll();
             }, 3000);
@@ -573,9 +638,11 @@
                 $('#bgMenuCollection').toggleClass('active');
 
                 $('.image-collection').parent().removeClass('active');
+                $('.image-navigation').parent().removeClass('active');
 
                 setTimeout(function () {
-                    $('#dvMenuCollection').toggleClass('point-auto');
+                    $('#dvMenuCollection').addClass('point-auto');
+                    $('#dvMenuNavigation').removeClass('point-auto');
                 }, 500);
 
                 $('.navbar-brand').toggleClass('hide');
@@ -606,10 +673,12 @@
                 $('#dvMenuNavigation').toggleClass('active');
                 $('#bgMenuNavigation').toggleClass('active');
 
+                $('.image-collection').parent().removeClass('active');
                 $('.image-navigation').parent().removeClass('active');
 
                 setTimeout(function () {
-                    $('#dvMenuNavigation').toggleClass('point-auto');
+                    $('#dvMenuCollection').removeClass('point-auto');
+                    $('#dvMenuNavigation').addClass('point-auto');
                 }, 500);
 
                 disableWheelScroll();
