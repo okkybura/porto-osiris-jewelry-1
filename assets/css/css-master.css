@@ -10056,6 +10056,7 @@ img[data-speed] {
 }
 
 a, button {
+  cursor: pointer;
   outline: none !important;
   box-shadow: none !important;
   transition: 0.75s var(--cubic-bezier-1);
